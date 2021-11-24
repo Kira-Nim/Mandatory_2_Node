@@ -3,7 +3,7 @@ const express = require('express')
 
 // Import the module object from which it is possible to get a config obj made in the projects.js file
 // This can be used to get acces to an endpoint defined in the projects.js file
-const projectsRouter = require("/routers/projects.js");
+const projectsRouter = require("./routers/projects.js");
 
 // call the library to get an app obj which will be used to configure the server
 const app = express() 
@@ -27,10 +27,6 @@ app.get("/", (req, res) => {
     res.sendFile(__dirname + "/public/frontpage/frontpage.html");
 });
 
-// Register endpoint for projects.html
-app.get("/projects", (req, res) => {
-    res.sendFile(__dirname + "/public/projects/projects.html");
-});
 
 /* Register what port the server should be listening on and open it.
     Install "cross-env" in package.json as dependensy. 
