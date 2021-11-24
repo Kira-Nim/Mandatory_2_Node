@@ -1,0 +1,26 @@
+{
+  "name": "Mandatory_2_Node",
+  "version": "1.0.0",
+  "description": "A CMS for creating a personal portfolio",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Kira-Nim/Mandatory_2_Node.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Kira-Nim/Mandatory_2_Node/issues"
+  },
+  "homepage": "https://github.com/Kira-Nim/Mandatory_2_Node#readme",
+  "dependencies": {
+    "cross-env": "^7.0.3", 
+    "express": "^4.17.1"
+  },
+  "devDependencies": {}
+}
+
