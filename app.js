@@ -1,16 +1,24 @@
 // Import express 
 const express = require('express') 
 
+
 // call the library to get an app obj which will be used to configure the server
 const app = express() 
 
 // var with value port number. Find portnumber in invironment or use 8080 as default.
 const PORT = process.env.PORT || 8080
 
+// 
+app.use(express.static("public"));
 
-// Register endpoint for frontpage
+// Register endpoint for frontpage.html
 app.get("/", (req, res) => {
     res.sendFile(__dirname + "/frontpage/frontpage.html");
+});
+
+// Register endpoint for projects.html
+app.get("/projects", (req, res) => {
+    res.sendFile(__dirname + "/public/projects/projects.html");
 });
 
 
@@ -21,4 +29,5 @@ app.get("/", (req, res) => {
 app.listen(PORT, (error) => {
     console.log(`app listening at http://localhost:${PORT}`)
 })
+
 

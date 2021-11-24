@@ -1,5 +1,5 @@
 {
-  "name": "Mandatory_2_Node",
+  "name": "mandatory_2_node",
   "version": "1.0.0",
   "description": "A CMS for creating a personal portfolio",
   "main": "app.js",

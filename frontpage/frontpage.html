@@ -1,21 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <link rel="stylesheet" href="./frontpage/frontpage.css">
     <title>Nodefolio</title>
+    <meta charset="UTF-8">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="frontpage.css">
+    <link rel="stylesheet" href="../global/global.css">
+
+    <!-- Js (defer: Get js straight away, but execute after html has been read) -->
+    <script src="frontpage.js" defer></script>
+
 </head>
 <body>
     <nav>
+        <a href="/"><img class="logo-image" src="../assets/logo.png"></a>
         <a href="/cv">CV</a>    
         <a href="/projects">Projects</a>    
         <a href="/contact">Contact</a>
     </nav>
-
-    <h1>Nodefolio</h1>
-
+    <main>
+        <h1>Nodefolio</h1>
+    </main>
     <footer>
-
+        <p>Telphone Number: xxxxxxxx</p>
+        <p>Email: xxxxxxxx@xxxxxx.com</p>
+        <p id="copyright-year"></p>
     </footer>
 </body>
 </html> 
