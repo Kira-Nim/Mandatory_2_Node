@@ -4,7 +4,12 @@ const express = require('express')
 // Import the module object from which it is possible to get a config obj made in the projects.js file
 // This can be used to get acces to an endpoint defined in the projects.js file
 const projectsRouter = require("./routers/projects.js");
+
+// 
 const pagesRouter = require("./routers/pages.js")
+
+//
+const contactRouter = require("./routers/contact.js");
 
 // Using the destructuring assignment operator ({} =) 
 // to get the createPage method from the render.js module
@@ -12,6 +17,11 @@ const pagesRouter = require("./routers/pages.js")
         // createPageWrapperObj = require("./render.js")
         // createPage = createPageWrapperObj.createPage
 const { createPage } = require("./render.js");
+
+// urlencoded is a method that enables out server to decode url's that have been encoded by the client
+// (encoded to not contain any String characters which is not allowed in an url)
+// data send through a html form will be encoded before it is sent.
+const { urlencoded } = require("express");
 
 // call the library to get an app obj which will be used to configure the server
 const app = express() 
@@ -25,10 +35,16 @@ const PORT = process.env.PORT || 8080
 // --> configure the server to use the above mentioned component.
 app.use(express.static("public"));
 
-// Configure the server to use the config obj made in the projects.js 
-// which can be used to get acces to an endpoint defined in the projects.js
+// configure server to parse json input from user to js objects
+app.use(express.json());
+
+// configure server so that it makes sure that a given String only consist of "allowed" characters
+app.use(express.urlencoded({ extended: true }));
+
+// Configure the server to use the config obj from require above
 app.use(projectsRouter.router);
 app.use(pagesRouter.router);
+app.use(contactRouter.router);
 
 // ready pages by calling createPage, a method defined in render.js (which has been required)
 const frontpagePage = createPage("frontpage/frontpage.html", { 

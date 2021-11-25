@@ -1,3 +1,13 @@
 <h4>Contact me</h4>
 
-<!-- todo Create the contact form : pure HTML -->
+<form action="/api/contact" method="POST">
+    <label>Name</label>
+    <input id="name" name="name" placeholder="Name">
+    <label>Email</label>
+    <input id="email" name="email" type="email" placeholder="Email">
+    <label>Phone No.</label>
+    <input id="phone" name="phone" placeholder="Phone">
+    <label>Message</label>
+    <textarea id="message" name="message" rows="15" cols="35"></textarea>
+    <button type="submit">Contact Me!</button>
+</form>

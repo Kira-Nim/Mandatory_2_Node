@@ -18,9 +18,9 @@
   },
   "homepage": "https://github.com/Kira-Nim/Mandatory_2_Node#readme",
   "dependencies": {
-    "cross-env": "^7.0.3", 
-    "express": "^4.17.1"
+    "cross-env": "^7.0.3",
+    "express": "^4.17.1",
+    "nodemailer": "^6.7.1"
   },
   "devDependencies": {}
 }
-
