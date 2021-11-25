@@ -4,6 +4,7 @@ const express = require('express')
 // Import the module object from which it is possible to get a config obj made in the projects.js file
 // This can be used to get acces to an endpoint defined in the projects.js file
 const projectsRouter = require("./routers/projects.js");
+const pagesRouter = require("./routers/pages.js")
 
 // Using the destructuring assignment operator ({} =) 
 // to get the createPage method from the render.js module
@@ -27,9 +28,13 @@ app.use(express.static("public"));
 // Configure the server to use the config obj made in the projects.js 
 // which can be used to get acces to an endpoint defined in the projects.js
 app.use(projectsRouter.router);
+app.use(pagesRouter.router);
 
 // ready pages by calling createPage, a method defined in render.js (which has been required)
-const frontpagePage = createPage("frontpage/frontpage.html", { title: "Nodefolio | Welcome" });
+const frontpagePage = createPage("frontpage/frontpage.html", { 
+    title: "Nodefolio | Welcome"
+});
+const CVPage = createPage("CVPage/CVPage.html");
 const projectsPage = createPage("projects/projects.html");
 const contactPage = createPage("contact/contact.html");
 
@@ -48,6 +53,11 @@ app.get("/projects", (req, res) => {
 // Register endpoint for contact page
 app.get("/contact", (req, res) => {
     res.send(contactPage);
+});
+
+// Register endpoint for cv page
+app.get("/cv", (req, res) => {
+    res.send(CVPage);
 });
 
 /* Register what port the server should be listening on and open it.
