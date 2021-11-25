@@ -24,14 +24,26 @@ app.use(express.static("public"));
 // which can be used to get acces to an endpoint defined in the projects.js
 app.use(projectsRouter.router);
 
-// Read directory (synchronously). create a String containing all from frontpage html file
+// Read file (synchronously). create a String containing all from the html file
 const frontpage = fs.readFileSync("./public/pages/frontpage/frontpage.html", "utf8");
+const projects = fs.readFileSync("./public/pages/projects/projects.html", "utf8");
+const nav = fs.readFileSync("./public/components/nav/nav.html", "utf8");
+const footer = fs.readFileSync("./public/components/footer/footer.html", "utf8");
 
-// Register endpoint for frontpage.html
+// Ready the pages by inserting nav and footer into the main html pages (ex. frontpage and projectpage)
+const frontpageTemplate = nav + frontpage + footer;
+const projectsTemplate = nav + projects + footer;
+
+// Register endpoint for frontpage
 app.get("/", (req, res) => {
 
     // send and not send file because it is a Sting given as param (sendFile if param is a path)
-    res.send(frontpage);
+    res.send(frontpageTemplate);
+});
+
+// Register endpoint for projects page
+app.get("/projects", (req, res) => {
+    res.send(projectsTemplate);
 });
 
 /* Register what port the server should be listening on and open it.

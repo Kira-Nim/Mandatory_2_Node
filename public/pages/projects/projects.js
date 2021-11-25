@@ -6,7 +6,6 @@ fetch("/api/projects")
     const projectsWrapperDiv = document.getElementById("projects-wrapper");
 
     projects.map(project => { 
-        
         const projectDiv = document.createElement("div");
 
         projectDiv.innerHTML = `
