@@ -29,20 +29,20 @@ app.use(express.static("public"));
 app.use(projectsRouter.router);
 
 // ready pages by calling createPage, a method defined in render.js (which has been required)
-const frontpage = createPage("frontpage/frontpage.html", { title: "Nodefolio | Welcome" });
-const projects = createPage("projects/projects.html");
-const contact = createPage("contact/contact.html");
+const frontpagePage = createPage("frontpage/frontpage.html", { title: "Nodefolio | Welcome" });
+const projectsPage = createPage("projects/projects.html");
+const contactPage = createPage("contact/contact.html");
 
 // Register endpoint for frontpage
 app.get("/", (req, res) => {
 
     // send and not send file because it is a Sting given as param (sendFile if param is a path)
-    res.send(frontpageTemplate);
+    res.send(frontpagePage);
 });
 
 // Register endpoint for projects page
 app.get("/projects", (req, res) => {
-    res.send(projectsTemplate);
+    res.send(projectsPage);
 });
 
 // Register endpoint for contact page
