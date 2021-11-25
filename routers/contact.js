@@ -2,7 +2,9 @@ const router = require("express").Router();
 
 router.post("/api/contact", (req, res) => {
 
-    res.redirect("/contact");
+    console.log(req);
+
+    res.send();
 });
 
 module.exports = {

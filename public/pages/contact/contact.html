@@ -1,6 +1,7 @@
 <h4>Contact me</h4>
 
-<form action="/api/contact" method="POST">
+<!-- <form action="/api/contact" method="POST"> -->
+    <div>
     <label>Name</label>
     <input id="name" name="name" placeholder="Name">
     <label>Email</label>
@@ -9,5 +10,7 @@
     <input id="phone" name="phone" placeholder="Phone">
     <label>Message</label>
     <textarea id="message" name="message" rows="15" cols="35"></textarea>
-    <button type="submit">Contact Me!</button>
-</form>
+    <button id="contact-button">Contact Me!</button>
+</div>
+
+<script src="./pages/contact/contact.js"></script>
