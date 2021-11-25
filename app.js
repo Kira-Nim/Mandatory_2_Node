@@ -5,8 +5,12 @@ const express = require('express')
 // This can be used to get acces to an endpoint defined in the projects.js file
 const projectsRouter = require("./routers/projects.js");
 
-// module for working with files. 
-const fs = require("fs");
+// Using the destructuring assignment operator ({} =) 
+// to get the createPage method from the render.js module
+    // This is the same as:
+        // createPageWrapperObj = require("./render.js")
+        // createPage = createPageWrapperObj.createPage
+const { createPage } = require("./render.js");
 
 // call the library to get an app obj which will be used to configure the server
 const app = express() 
@@ -24,15 +28,10 @@ app.use(express.static("public"));
 // which can be used to get acces to an endpoint defined in the projects.js
 app.use(projectsRouter.router);
 
-// Read file (synchronously). create a String containing all from the html file
-const frontpage = fs.readFileSync("./public/pages/frontpage/frontpage.html", "utf8");
-const projects = fs.readFileSync("./public/pages/projects/projects.html", "utf8");
-const nav = fs.readFileSync("./public/components/nav/nav.html", "utf8");
-const footer = fs.readFileSync("./public/components/footer/footer.html", "utf8");
-
-// Ready the pages by inserting nav and footer into the main html pages (ex. frontpage and projectpage)
-const frontpageTemplate = nav + frontpage + footer;
-const projectsTemplate = nav + projects + footer;
+// ready pages by calling createPage, a method defined in render.js (which has been required)
+const frontpage = createPage("frontpage/frontpage.html", { title: "Nodefolio | Welcome" });
+const projects = createPage("projects/projects.html");
+const contact = createPage("contact/contact.html");
 
 // Register endpoint for frontpage
 app.get("/", (req, res) => {
@@ -44,6 +43,11 @@ app.get("/", (req, res) => {
 // Register endpoint for projects page
 app.get("/projects", (req, res) => {
     res.send(projectsTemplate);
+});
+
+// Register endpoint for contact page
+app.get("/contact", (req, res) => {
+    res.send(contactPage);
 });
 
 /* Register what port the server should be listening on and open it.
