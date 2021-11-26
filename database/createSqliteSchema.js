@@ -22,6 +22,11 @@ import { connectSqlite } from "./connectSqlite.js";
             password TEXT NOT NULL,
         )
     `;
+
+    const nodefolioUserTableData = `
+    Incert Into users (username, password)
+    VALUES (user1234, 1234)
+`;
     
     await dbConnection.exec(nodefolioTablesSchema);
 })()  

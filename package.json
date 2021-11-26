@@ -2,6 +2,7 @@
   "name": "mandatory_2_node",
   "version": "1.0.0",
   "description": "A CMS for creating a personal portfolio",
+  "type":"module",
   "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
