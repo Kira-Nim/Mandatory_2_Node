@@ -4,7 +4,8 @@
   "description": "A CMS for creating a personal portfolio",
   "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "create-sqlite-db": "node ./database/createSqliteSchema.js"
   },
   "repository": {
     "type": "git",

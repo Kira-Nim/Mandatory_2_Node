@@ -1,5 +1,6 @@
 // Import express module
-const express = require('express') 
+// same result as (allmost): const express = require('express') 
+import express from "express";
 
 // Import the module object from which it is possible to get a config obj made in the projects.js file
 // This can be used to get acces to an endpoint defined in the projects.js file
