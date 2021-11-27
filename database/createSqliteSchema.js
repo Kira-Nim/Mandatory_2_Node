@@ -11,22 +11,27 @@ import { connectSqlite } from "./connectSqlite.js";
     const nodefolioTablesSchema = `
         CREATE TABLE projects (
             id INTEGER PRIMARY KEY AUTOINCREMENT,
-            description TEXT NOT NULL,
+            name TEXT NOT NULL,
+            date DATE,
+            description TEXT,
             github_link TEXT,
             deployed_link TEXT
-        )
-
-        CREATE TABLE user (
-            id INTEGER PRIMARY KEY AUTOINCREMENT,
-            username TEXT NOT NULL,
-            password TEXT NOT NULL,
-        )
+        ); 
     `;
 
-    const nodefolioUserTableData = `
-    Incert Into users (username, password)
-    VALUES (user1234, 1234)
-`;
+    const tempScheme_1 = `CREATE TABLE user (
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
+        username TEXT NOT NULL,
+        password TEXT NOT NULL);
+        `;
+
+    const tempScheme_2 = `INSERT INTO projects (name, date, description, github_link, deployed_link) VALUES ('My Project', '08-03-1984', 'bla bla bla bla bla bla', 'link.com', 'link2.com');`;
+
+    const tempScheme_3 = `INSERT INTO user (username, password) VALUES ('user1234', '1234');`;
     
     await dbConnection.exec(nodefolioTablesSchema);
+    await dbConnection.exec(tempScheme_1);
+    await dbConnection.exec(tempScheme_2);
+    await dbConnection.exec(tempScheme_3);
 })()  
+

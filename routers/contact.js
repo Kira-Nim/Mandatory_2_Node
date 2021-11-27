@@ -1,12 +1,11 @@
-const router = require("express").Router();
+import express from "express";
+const router = express.Router();
 
-router.post("/api/contact", (req, res) => {
+router.post("/api/contact", async (req, res) => {
 
     console.log(req);
 
     res.send();
 });
 
-module.exports = {
-    router
-}; 
+export default router; 

@@ -10,9 +10,10 @@ fetch("/api/projects")
 
         projectDiv.innerHTML = `
             <h3>${escapeHTML(project.name)}</h3>
-            <p>Category: ${escapeHTML(project.category)}</p>
-            <p>Technologies: ${escapeHTML(project.technologies.join(", "))}</p>
-            <p>Links: ....</p>
+            <p>Description: ${escapeHTML(project.date)}</p>
+            <p>Description: ${escapeHTML(project.description)}</p>
+            <p>Github Link: ${escapeHTML(project.github_link)}</p>
+            <p>Link: ${escapeHTML(project.deployed_link)}</p>
         `;
 
         projectsWrapperDiv.appendChild(projectDiv);

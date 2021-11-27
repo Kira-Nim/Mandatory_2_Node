@@ -1,7 +1,6 @@
-const router = require("express").Router();
-const path = require("path");
+import path from "path";
+import express from "express";
+const router = express.Router();
 
 
-module.exports = {
-    router
-};
+export default router;

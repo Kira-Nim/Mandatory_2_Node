@@ -4,25 +4,20 @@ import express from "express";
 
 // Import the module object from which it is possible to get a config obj made in the projects.js file
 // This can be used to get acces to an endpoint defined in the projects.js file
-const projectsRouter = require("./routers/projects.js");
+import projectsRouter from "./routers/projects.js";
 
 // 
-const pagesRouter = require("./routers/pages.js")
+import pagesRouter from "./routers/pages.js";
 
 //
-const contactRouter = require("./routers/contact.js");
+import contactRouter from "./routers/contact.js";
 
 // Using the destructuring assignment operator ({} =) 
 // to get the createPage method from the render.js module
     // This is the same as:
         // createPageWrapperObj = require("./render.js")
         // createPage = createPageWrapperObj.createPage
-const { createPage } = require("./render.js");
-
-// urlencoded is a method that enables out server to decode url's that have been encoded by the client
-// (encoded to not contain any String characters which is not allowed in an url)
-// data send through a html form will be encoded before it is sent.
-const { urlencoded } = require("express");
+import createPage from "./render.js";
 
 // call the library to get an app obj which will be used to configure the server
 const app = express() 
@@ -40,12 +35,15 @@ app.use(express.static("public"));
 app.use(express.json());
 
 // configure server so that it makes sure that a given String only consist of "allowed" characters
+// urlencoded is a method that enables out server to decode url's that have been encoded by the client
+// (encoded to not contain any String characters which is not allowed in an url)
+// data send through a html form will be encoded before it is sent.
 app.use(express.urlencoded({ extended: true }));
 
 // Configure the server to use the config obj from require above
-app.use(projectsRouter.router);
-app.use(pagesRouter.router);
-app.use(contactRouter.router);
+app.use(projectsRouter);
+app.use(pagesRouter);
+app.use(contactRouter);
 
 // ready pages by calling createPage, a method defined in render.js (which has been required)
 const frontpagePage = createPage("frontpage/frontpage.html", { 

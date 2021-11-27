@@ -1,5 +1,6 @@
 // module for working with files. 
-const fs = require("fs");
+import fs from "fs";
+
 
 // Read file (synchronously). create a String containing all from the html file
 const nav = fs.readFileSync("./public/components/nav/nav.html", "utf8");
@@ -13,6 +14,4 @@ function createPage(path, options) {
 }
 
 // Make the createPage metod acceseble with "require" from other js files.
-module.exports = {
-    createPage
-}; 
+export default createPage; 
