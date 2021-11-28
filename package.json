@@ -2,7 +2,7 @@
   "name": "mandatory_2_node",
   "version": "1.0.0",
   "description": "A CMS for creating a personal portfolio",
-  "type":"module",
+  "type": "module",
   "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -20,8 +20,10 @@
   },
   "homepage": "https://github.com/Kira-Nim/Mandatory_2_Node#readme",
   "dependencies": {
+    "cookie-parser": "^1.4.6",
     "cross-env": "^7.0.3",
     "express": "^4.17.1",
+    "express-session": "^1.17.2",
     "nodemailer": "^6.7.1",
     "sqlite": "^4.0.23",
     "sqlite3": "^5.0.2"

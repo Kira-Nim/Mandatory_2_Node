@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Notefolio</title>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="../assets/global.css">
+
+    <!-- Js (defer: Get js straight away, but execute after html has been read) -->
+    <script src="./pages/login/login.js defer" ></script>
+    
+</head>
+<body>
+    <form action="/api/login" method="POST">
+        <h2>Login</h2>
+        
+        <div class="inputDiv">
+            <input type="text" name="username" id="username" placeholder="Brugernavn">
+        </div>
+        <div class="inputDiv">
+            <input type="password" name="password" id="password" placeholder="Password">
+        </div>
+        <input type="submit" value="LogIn" id="login-button">
+    </form>
+</body>
+</html>
