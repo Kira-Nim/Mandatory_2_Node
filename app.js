@@ -19,6 +19,8 @@ import pagesRouter from "./routers/pages.js";
 //
 import contactRouter from "./routers/contact.js";
 
+import loginRouter from "./routers/login.js";
+
 // Using the destructuring assignment operator ({} =) 
 // to get the createPage method from the render.js module
     // This is the same as:
@@ -65,8 +67,9 @@ app.use(express.urlencoded({ extended: true }));
 app.use(projectsRouter);
 app.use(pagesRouter);
 app.use(contactRouter);
+app.use(loginRouter);
 
-// ready pages by calling createPage, a method defined in render.js (which has been required)
+// ready pages by calling createPage, a method defined in render.js (which has been imported)
 const frontpagePage = createPage("frontpage/frontpage.html", { 
     title: "Nodefolio | Welcome"
 });
