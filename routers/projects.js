@@ -1,5 +1,5 @@
 // Import module that can be used to make a connection to db
-import dbConnection from "../database/connectSqlite.js";
+import connection from "../database/connectSqlite.js";
 
 // Import module express and call method Router() on it
 // The value stored in router is a configuration object that will be used 
@@ -11,7 +11,7 @@ const router = express.Router();
 router.get("/api/projects", async (req, res) => {
 
     // get array of objects - one object for each project containing att. for each column
-    const projects = await dbConnection.all("SELECT * from projects");
+    const projects = await connection.all("SELECT * from projects");
     
     console.log(projects);
     
@@ -29,12 +29,8 @@ router.post("/api/projects", async (req, res) => {
     deployedLink = req.body.deployedLink;
 
     // create project with values from req body variables above.
-/*     dbConnection.run
-    
-    (`"INSERT INTO projects (name, date, description, githubLink, deployedLink) VALUES (` + `${projectName}, ${date}, ${description}, ${githubLink}, ${deployedLink}`+ )");
-    
-    `INSERT INTO projects (name, date, description, github_link, deployed_link) VALUES ('My Project', '08-03-1984', 'bla bla bla bla bla bla', 'link.com', 'link2.com');`
- */
+     connection.run(`INSERT INTO projects (name, date, description, githubLink, deployedLink) VALUES (` + `'${projectName}', '${date}', '${description}', '${githubLink}', '${deployedLink}')`);
+
     res.send();
 });
 

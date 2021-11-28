@@ -1,12 +1,11 @@
-import { connectSqlite } from "./connectSqlite.js";
+import connection from "./connectSqlite.js";
 
 // Could have declared a function and then called this function instead of this.
 // Might have been more readable. 
 (async () => {
-    const dbConnection = await connectSqlite();
 
-    await dbConnection.exec("DROP TABLE IF EXISTS projects");
-    await dbConnection.exec("DROP TABLE IF EXISTS user");
+    await connection.exec("DROP TABLE IF EXISTS projects");
+    await connection.exec("DROP TABLE IF EXISTS user");
 
     const nodefolioTablesSchema = `
         CREATE TABLE projects (
@@ -29,9 +28,9 @@ import { connectSqlite } from "./connectSqlite.js";
 
     const tempScheme_3 = `INSERT INTO user (username, password) VALUES ('user1234', '1234');`;
     
-    await dbConnection.exec(nodefolioTablesSchema);
-    await dbConnection.exec(tempScheme_1);
-    await dbConnection.exec(tempScheme_2);
-    await dbConnection.exec(tempScheme_3);
+    await connection.exec(nodefolioTablesSchema);
+    await connection.exec(tempScheme_1);
+    await connection.exec(tempScheme_2);
+    await connection.exec(tempScheme_3);
 })()  
 

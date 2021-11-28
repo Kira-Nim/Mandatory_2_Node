@@ -84,3 +84,14 @@ app.listen(PORT, (error) => {
 })
 
 
+/* Test:
+            const projectName = "Kira";
+            const date = "08-03-1984";
+            const description = "bla bla bla";
+            const githubLink = "linklink";
+            const deployedLink = "linkjjjjjjj";
+            const myString = `INSERT INTO projects (name, date, description, githubLink, deployedLink) VALUES (` + `'${projectName}', '${date}', '${description}', '${githubLink}', '${deployedLink}')`;
+            console.log("String test:");
+            console.log(myString); 
+*/
+
