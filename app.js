@@ -9,16 +9,11 @@ import sessions from "express-session";
 // module for working with files.
 import fs from "fs";
 
-// Import the module object from which it is possible to get a config obj made in the projects.js file
+// Import the module object from which it is possible to get a config obj made in ex the projects.js file
 // This can be used to get acces to an endpoint defined in the projects.js file
 import projectsRouter from "./routers/projects.js";
-
-// 
 import pagesRouter from "./routers/pages.js";
-
-//
 import contactRouter from "./routers/contact.js";
-
 import loginRouter from "./routers/login.js";
 
 // Using the destructuring assignment operator ({} =) 
@@ -76,6 +71,8 @@ const frontpagePage = createPage("frontpage/frontpage.html", {
 const CVPage = createPage("CVPage/CVPage.html");
 const projectsPage = createPage("projects/projects.html");
 const contactPage = createPage("contact/contact.html");
+const dashboardPage = createPage("dashboard/dashboard.html");
+const editProjectPage = createPage("dashboard/editProject.html");
 
 // Read page (synchronously). create a String containing all from the login.html file
 const loginPage = fs.readFileSync("./public/pages/login/login.html", "utf8");
@@ -105,6 +102,16 @@ app.get("/cv", (req, res) => {
 // Register endpoint for login page
 app.get("/login", (req, res) => {
     res.send(loginPage);
+});
+
+// Register endpoint for dashboard page
+app.get("/dashboard", (req, res) => {
+    res.send(dashboardPage);
+});
+
+// Register endpoint for edit project page
+app.get("/dashboard/editProject", (req, res) => {
+    res.send(editProjectPage);
 });
 
 /* Register what port the server should be listening on and open it.
