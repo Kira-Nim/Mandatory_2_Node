@@ -18,8 +18,26 @@ router.get("/api/projects", async (req, res) => {
     res.send({ projects });
 });
 
-// endpoint for saving project to db
-router.post("/api/projects", async (req, res) => {
+// endpoint for saving new project to db
+router.post("/api/createProject", async (req, res) => {
+
+    // get data from req body
+    const projectName = req.body.name;
+    const date = req.body.date;
+    const description = req.body.description;
+    const githubLink = req.body.githubLink;
+    const deployedLink = req.body.deployedLink;
+
+    console.log("so far so good" + projectName, date, description, githubLink, deployedLink);
+
+    // create project with values from req body variables above.
+     connection.run(`INSERT INTO projects (name, date, description, github_link, deployed_link) VALUES (` + `'${projectName}', '${date}', '${description}', '${githubLink}', '${deployedLink}')`);
+
+    res.send();
+});
+
+// endpoint for updating project in db
+router.post("/api/updateProject", async (req, res) => {
 
     // get data from req body
     const projectName = req.body.name;

@@ -17,6 +17,6 @@ fetch("/api/projects")
 
         // Html for creating new project
         const createProjectDiv = document.createElement("div");
-        createProjectDiv.innerHTML = `<a href = "./editProject">New Project</a>`;
+        createProjectDiv.innerHTML = `<a href = "./createProject">New Project</a>`;
         projectsWrapperDiv.appendChild(createProjectDiv);
 });

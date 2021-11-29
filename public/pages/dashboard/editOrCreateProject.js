@@ -1,6 +1,14 @@
+// by default the saveProjct callback will med a post to "/api/createProject"
+// unless the end of the url used to get to this site was "/createEditProject"
+// Then the post will be made to "/api/updateProject".
+/* const path = "/api/createProject";
+if(window.location.pathname === createEditProject){
+    path = "/api/updateProject"; 
+}
+*/
 
-function saveProjects() {
-    fetch("/api/projects", {
+function saveProject() {
+    fetch("/api/createProject", {
         method: "POST",
         headers: { "Content-type": "application/json; charset=UTF-8" },
         body: JSON.stringify({
@@ -14,7 +22,7 @@ function saveProjects() {
         if (response.status === 200) {
             console.log("Everything went well");
 
-            // redirect after showing a notification
+            document.location.href = href="../dashboard/";
 
         } else {
             
@@ -23,4 +31,4 @@ function saveProjects() {
     });
 }
 
-document.getElementById("saveProject-button").addEventListener("click", "saveProject");
+document.getElementById("saveProject-button").addEventListener("click", saveProject);

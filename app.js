@@ -72,7 +72,7 @@ const CVPage = createPage("CVPage/CVPage.html");
 const projectsPage = createPage("projects/projects.html");
 const contactPage = createPage("contact/contact.html");
 const dashboardPage = createPage("dashboard/dashboard.html");
-const editProjectPage = createPage("dashboard/editProject.html");
+const editOrCreateProjectPage = createPage("dashboard/editOrCreateProject.html");
 
 // Read page (synchronously). create a String containing all from the login.html file
 const loginPage = fs.readFileSync("./public/pages/login/login.html", "utf8");
@@ -111,7 +111,12 @@ app.get("/dashboard", (req, res) => {
 
 // Register endpoint for edit project page
 app.get("/dashboard/editProject", (req, res) => {
-    res.send(editProjectPage);
+    res.send(editOrCreateProjectPage);
+});
+
+// Register endpoint for create project page
+app.get("/dashboard/createProject", (req, res) => {
+    res.send(editOrCreateProjectPage);
 });
 
 /* Register what port the server should be listening on and open it.
