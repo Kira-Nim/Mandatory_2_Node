@@ -2,6 +2,10 @@
     height: 50px;
 }
 
+.editDeleteImage {
+    height: 20px;
+}
+
 main {
     min-height: calc(100vh - 200px);
 }

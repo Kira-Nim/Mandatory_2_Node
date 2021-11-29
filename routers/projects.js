@@ -22,14 +22,16 @@ router.get("/api/projects", async (req, res) => {
 router.post("/api/projects", async (req, res) => {
 
     // get data from req body
-    projectName = req.body.name;
-    date = req.body.date;
-    description = req.body.description;
-    githubLink = req.body.githubLink;
-    deployedLink = req.body.deployedLink;
+    const projectName = req.body.name;
+    const date = req.body.date;
+    const description = req.body.description;
+    const githubLink = req.body.githubLink;
+    const deployedLink = req.body.deployedLink;
+
+    console.log("so far so good" + projectName, date, description, githubLink, deployedLink);
 
     // create project with values from req body variables above.
-     connection.run(`INSERT INTO projects (name, date, description, githubLink, deployedLink) VALUES (` + `'${projectName}', '${date}', '${description}', '${githubLink}', '${deployedLink}')`);
+     connection.run(`INSERT INTO projects (name, date, description, github_link, deployed_link) VALUES (` + `'${projectName}', '${date}', '${description}', '${githubLink}', '${deployedLink}')`);
 
     res.send();
 });

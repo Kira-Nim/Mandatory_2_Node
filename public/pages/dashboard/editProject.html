@@ -1,1 +1,17 @@
-<h2>Hello world</h2>
+<h2></h2>
+<form action="/api/projects" method="POST">
+<div>
+    <label>Project name</label>
+    <input id="name" name="name" placeholder="Project name">
+    <label>Date</label>
+    <input id="date" name="date" type="date" placeholder="date">
+    <label>Github Link</label>
+    <input id="githubLink" name="githubLink" placeholder="Link to Github">
+    <label>Website</label>
+    <input id="deployedLink" name="deployedLink" placeholder="Link to project">
+    <label>Description</label>
+    <textarea id="description" name="description"></textarea>
+    <button id="saveProject-button">Save</button>
+</div>
+
+<script src="./pages/dashboard/editProject.js"></script>

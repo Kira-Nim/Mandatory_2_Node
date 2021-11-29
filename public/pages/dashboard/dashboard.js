@@ -9,8 +9,8 @@ fetch("/api/projects")
         const projectDiv = document.createElement("div");
         projectDiv.innerHTML = `
         <span>Description: ${escapeHTML(project.name)}</span> 
-        <a href="./editProject"><img class="edit-image" src="../assets/edit-image"></a>
-        <img class="delete-image" src="../assets/delete-image">
+        <a href="./editProject"><img class="editDeleteImage" src="../assets/editImage.png"></a>
+        <img class="editDeleteImage" src="../assets/deleteImage.png">
         `;
         projectsWrapperDiv.appendChild(projectDiv);
     });
