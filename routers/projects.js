@@ -28,28 +28,22 @@ router.post("/api/createProject", async (req, res) => {
     const githubLink = req.body.githubLink;
     const deployedLink = req.body.deployedLink;
 
-    console.log("so far so good" + projectName, date, description, githubLink, deployedLink);
-
     // create project with values from req body variables above.
      connection.run(`INSERT INTO projects (name, date, description, github_link, deployed_link) VALUES (` + `'${projectName}', '${date}', '${description}', '${githubLink}', '${deployedLink}')`);
 
+     console.log(".....");
+     console.log("the endpoint for creating a new project has been reach and the new project has been saved to db");
+     console.log(".....");
+     
     res.send();
 });
 
 // endpoint for updating project in db
 router.post("/api/updateProject", async (req, res) => {
 
-    // get data from req body
-    const projectName = req.body.name;
-    const date = req.body.date;
-    const description = req.body.description;
-    const githubLink = req.body.githubLink;
-    const deployedLink = req.body.deployedLink;
-
-    console.log("so far so good" + projectName, date, description, githubLink, deployedLink);
-
-    // create project with values from req body variables above.
-     connection.run(`INSERT INTO projects (name, date, description, github_link, deployed_link) VALUES (` + `'${projectName}', '${date}', '${description}', '${githubLink}', '${deployedLink}')`);
+    console.log(".....");
+    console.log("the endpoint for updating project has been reached but project has not been updated due to missing implementation of update project");
+    console.log(".....");
 
     res.send();
 });
