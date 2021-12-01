@@ -110,7 +110,7 @@ app.get("/dashboard", (req, res) => {
 });
 
 // Register endpoint for edit project page
-app.get("/dashboard/editProject", (req, res) => {
+app.get("/dashboard/editProject/:id", (req, res) => {
     res.send(editOrCreateProjectPage);
 });
 

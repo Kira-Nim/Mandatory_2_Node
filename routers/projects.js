@@ -7,47 +7,70 @@ import connection from "../database/connectSqlite.js";
 import express from "express";
 const router = express.Router();
 
-// endpoint for getting project data from db
+// endpoint for getting all projects
 router.get("/api/projects", async (req, res) => {
 
     // get array of objects - one object for each project containing att. for each column
     const projects = await connection.all("SELECT * from projects");
     
-    console.log(projects);
-    
     res.send({ projects });
 });
 
-// endpoint for saving new project to db
-router.post("/api/createProject", async (req, res) => {
+// endpoint for getting one specific project 
+router.get("/api/projects/:id", async (req, res) => {
 
-    // get data from req body
-    const projectName = req.body.name;
+    const projectId = req.params.id;
+
+    // Get projects with given id
+    const project = await connection.get("SELECT * FROM projects WHERE id = ?", projectId);
+
+    res.send(project);
+});
+
+// endpoint for creating a project
+router.post("/api/projects", async (req, res) => {
+
+    const name = req.body.name;
     const date = req.body.date;
     const description = req.body.description;
     const githubLink = req.body.githubLink;
     const deployedLink = req.body.deployedLink;
 
-    // create project with values from req body variables above.
-     connection.run(`INSERT INTO projects (name, date, description, github_link, deployed_link) VALUES (` + `'${projectName}', '${date}', '${description}', '${githubLink}', '${deployedLink}')`);
-
-     console.log(".....");
-     console.log("the endpoint for creating a new project has been reach and the new project has been saved to db");
-     console.log(".....");
-     
+    //const queryString = "INSERT INTO projects (name, date, description, github_link, deployed_link) VALUES (?, ?, ?, ?, ?)";
+    //connection.run(queryString, name, date, description, githubLink, deployedLink);
+    
+    const queryString = "INSERT INTO projects (name, date, description, github_link, deployed_link) VALUES (?, ?, ?, ?, ?)";
+    connection.run(queryString, name, date, description, githubLink, deployedLink);
+    
+    
     res.send();
 });
 
-// endpoint for updating project in db
-router.post("/api/updateProject", async (req, res) => {
+// endpoint for updating project
+router.patch("/api/projects/:id", async (req, res) => {
 
-    console.log(".....");
-    console.log("the endpoint for updating project has been reached but project has not been updated due to missing implementation of update project");
-    console.log(".....");
+    const projectId = req.params.id;
+    const name = req.body.name;
+    const date = req.body.date;
+    const description = req.body.description;
+    const githubLink = req.body.githubLink;
+    const deployedLink = req.body.deployedLink;
+
+    const queryString = "UPDATE projects SET name = ?, date = ?, description = ?, github_link = ?, deployed_link = ? WHERE id = ?"; 
+    connection.run(queryString, name, date, description, githubLink, deployedLink, projectId); 
 
     res.send();
 });
 
-// Set export att. on module to contain the router config obj. from above.
-// This is what can be accesed with "require" from other js files.
-export default router;
+// endpoint for deleting project
+router.delete("/api/projects/:id", async (req, res) => {   
+
+    connection.run(`DELETE FROM projects WHERE id = ${req.params.id}`)
+
+    res.send();
+});
+
+export default router; 
+
+
+

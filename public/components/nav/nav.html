@@ -2,21 +2,30 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="../assets/global.css">
-    <script src="../assets/lib/escapeHTML.js"></script>
+    
+    <!-- for css -->
+    <link rel="stylesheet" href="/assets/global.css">
+
+    <!-- for bootstrap -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    
+    <!-- js for user input handling/processing -->
+    <script src="/assets/lib/escapeHTML.js"></script>
+
     %%SCRIPT_PLACEHOLDER%%
     <title>%%DOCUMENT_TITLE%%</title>
 </head>
 <body>
-    <nav>
+    <nav class="navStyle">
         <a href="/">
-            <img class="logo-image" src="../assets/logo.png" alt="logo">
+            <img class="logo-image" src="/assets/logo.png" alt="logo">
         </a>
-        <a href = "/cv">CV</a>    
-        <a href = "/projects">Projects</a>    
-        <a href = "/contact">Contact</a>
-        <a href = "/login">Log ind</a>
-        <a href = "/dashboard">Administrate projects</a>
+        <a class="navText" href = "/contact">Contact</a>
+        <a class="navText" href = "/cv">CV</a>    
+        <a class="navText" href = "/projects">Projects</a>    
+        <a class="navText" href = "/dashboard">Administrate projects</a>
+        <a class="navText" href = "/login">Log ind</a>
     </nav>
 
     <main>
