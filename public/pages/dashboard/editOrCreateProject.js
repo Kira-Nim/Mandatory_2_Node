@@ -1,7 +1,7 @@
 
 
 // if the project shown is a project to be edited incert info about this project.
-if(getId() != null){
+if(getId() ){
     getProjectById()
 }
 
@@ -16,11 +16,7 @@ function getProjectById(){
         document.getElementById("description").value = project.description;
         document.getElementById("githubLink").value = project.github_link;
         document.getElementById("deployedLink").value = project.deployed_link;
-
-        // format the string to be shown in html input element with type date and set value
-        const dateStringArray = project.date.split("-")
-        date = dateStringArray[2] + "-" + dateStringArray[1] + "-" + dateStringArray[0];
-        document.getElementById("date").value = date;
+        document.getElementById("date").value = project.date;
 
         // Set projectname as header
         const header = document.getElementById("project-header").innerHTML = project.name;
@@ -33,7 +29,7 @@ function saveProject() {
     
     // Determin whether it is a post or a patch action
     let fetchMethod = "POST";
-    if(getId() != null){
+    if(getId()){
         fetchMethod = "PATCH";
     }
 
