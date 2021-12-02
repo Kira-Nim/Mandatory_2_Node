@@ -7,9 +7,11 @@
     <!-- CSS -->
     <link rel="stylesheet" href="../assets/global.css">
     
+    <!-- JS -->
+    <script src="./pages/login/login.js" defer></script>
 </head>
 <body>
-    <form action="/api/login" method="POST">
+    <div action="/api/login" method="POST">
         <h2>Login</h2>
         
         <div class="inputDiv">
@@ -18,7 +20,7 @@
         <div class="inputDiv">
             <input type="password" name="password" id="password" placeholder="Password">
         </div>
-        <input type="submit" value="LogIn" id="login-button">
-    </form>
+        <button id="login-button">Log in</button>
+    </div>
 </body>
 </html>

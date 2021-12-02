@@ -64,21 +64,17 @@ app.use(pagesRouter);
 app.use(contactRouter);
 app.use(loginRouter);
 
-// ready pages by calling createPage, a method defined in render.js (which has been imported)
-const frontpagePage = createPage("frontpage/frontpage.html", { 
-    title: "Nodefolio | Welcome"
-});
-const CVPage = createPage("CVPage/CVPage.html");
-const projectsPage = createPage("projects/projects.html");
-const contactPage = createPage("contact/contact.html");
-const dashboardPage = createPage("dashboard/dashboard.html");
-const editOrCreateProjectPage = createPage("dashboard/editOrCreateProject.html");
-
 // Read page (synchronously). create a String containing all from the login.html file
 const loginPage = fs.readFileSync("./public/pages/login/login.html", "utf8");
 
 // Register endpoint for frontpage
 app.get("/", (req, res) => {
+
+    // ready pages by calling createPage, a method defined in render.js (which has been imported)
+    const frontpagePage = createPage("frontpage/frontpage.html", { 
+        title: "Nodefolio | Welcome",
+        session: req.session
+    });
 
     // send and not send file because it is a Sting given as param (sendFile if param is a path)
     res.send(frontpagePage);
@@ -86,16 +82,25 @@ app.get("/", (req, res) => {
 
 // Register endpoint for projects page
 app.get("/projects", (req, res) => {
+    const projectsPage = createPage("projects/projects.html", {
+        session: req.session
+    });
     res.send(projectsPage);
 });
 
 // Register endpoint for contact page
 app.get("/contact", (req, res) => {
+    const contactPage = createPage("contact/contact.html", {
+        session: req.session
+    });
     res.send(contactPage);
 });
 
 // Register endpoint for cv page
 app.get("/cv", (req, res) => {
+    const CVPage = createPage("CVPage/CVPage.html", {
+        session: req.session
+    });
     res.send(CVPage);
 });
 
@@ -106,16 +111,25 @@ app.get("/login", (req, res) => {
 
 // Register endpoint for dashboard page
 app.get("/dashboard", (req, res) => {
+    const dashboardPage = createPage("dashboard/dashboard.html", {
+        session: req.session
+    });
     res.send(dashboardPage);
 });
 
 // Register endpoint for edit project page
 app.get("/dashboard/editProject/:id", (req, res) => {
+    const editOrCreateProjectPage = createPage("dashboard/editOrCreateProject.html", {
+        session: req.session
+    });
     res.send(editOrCreateProjectPage);
 });
 
 // Register endpoint for create project page
 app.get("/dashboard/createProject", (req, res) => {
+    const editOrCreateProjectPage = createPage("dashboard/editOrCreateProject.html", {
+        session: req.session
+    });
     res.send(editOrCreateProjectPage);
 });
 
