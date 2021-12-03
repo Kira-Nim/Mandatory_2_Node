@@ -12,7 +12,13 @@ function sendContactMessage() {
         if (response.status === 200) {
             console.log("Everything went well");
 
-            // redirect after showing a notification
+            // Display a success toast, with a title
+            toastr.success("Message sent");
+
+            document.getElementById("name").value = "";
+            document.getElementById("email").value = "";
+            document.getElementById("phone").value = "";
+            document.getElementById("message").value = "";
 
         } else {
             
