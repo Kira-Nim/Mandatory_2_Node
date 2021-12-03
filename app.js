@@ -49,6 +49,14 @@ app.use(cookieParser());
 // --> configure the server to use the above mentioned component.
 app.use(express.static("public"));
 
+// express.static() --> Call method on the express config obj. Give "node_modules/toastr" as param
+//                      This will configure the server so that there will be an URL path to every file
+//                      at the end og the given path ("node_modules/toastr"). 
+//
+//                      The name of url path will be equal to the first param "scripts/toastr" 
+//                      with /destination-file at the end 
+app.use("/scripts/toastr", express.static("node_modules/toastr"));
+
 // configure server to parse json input from user to js objects
 app.use(express.json());
 
@@ -127,7 +135,7 @@ app.get("/dashboard", (req, res) => {
     const dashboardPage = createPage("dashboard/dashboard.html", {
         session: req.session
     });
-    res.send(dashboardPage);
+    sendIfLoggedIn(dashboardPage, req, res);
 });
 
 // Register endpoint for edit project page
@@ -135,7 +143,7 @@ app.get("/dashboard/editProject/:id", (req, res) => {
     const editOrCreateProjectPage = createPage("dashboard/editOrCreateProject.html", {
         session: req.session
     });
-    res.send(editOrCreateProjectPage);
+    sendIfLoggedIn(editOrCreateProjectPage, req, res);
 });
 
 // Register endpoint for create project page
@@ -143,8 +151,23 @@ app.get("/dashboard/createProject", (req, res) => {
     const editOrCreateProjectPage = createPage("dashboard/editOrCreateProject.html", {
         session: req.session
     });
-    res.send(editOrCreateProjectPage);
+    sendIfLoggedIn(editOrCreateProjectPage, req, res);    
 });
+
+// Register endpoint for logout
+app.post('/logout',(req,res) => {
+    req.session.destroy();
+    res.redirect('/');
+});
+
+// Help function used for endpoints that only should return pages to logged in users.
+function sendIfLoggedIn(page, req, res){
+    if(req.session.userid){
+        res.send(page);
+    } else {
+        res.status("404").send(); // Status "NOT FOUND"
+    }
+}
 
 /* Register what port the server should be listening on and open it.
     Install "cross-env" in package.json as dependensy. 

@@ -17,7 +17,9 @@ function createPage(path, options) {
         <div class="navDropdown navText">
             <p>${options?.session.username || "Account"}</p>
             <div class="navDropdown-content">
-                <a class="navLinkStyle" href = "/logout">Log out</a>
+                <form action ="/logout" method="post">
+                    <input class="navLinkStyle navLogoutStyle" type="submit" value="Log out"></input>
+                </form>
                 <a class="navLinkStyle" href = "/dashboard">Manage content</a>
             </div>
         </div>
