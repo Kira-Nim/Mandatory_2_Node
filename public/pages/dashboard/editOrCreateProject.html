@@ -1,35 +1,41 @@
-<h2 id="project-header">New Project</h2>
-<div>
-    <label>Project name</label>
-    <input id="name" name="name" placeholder="Project name">
-    <label>Date</label>
-    <input id="date" name="date" type="date" placeholder="date">
-    <label>Github Link</label>
-    <input id="githubLink" name="githubLink" placeholder="Link to Github">
-    <label>Website</label>
-    <input id="deployedLink" name="deployedLink" placeholder="Link to project">
-    <label>Description</label>
-    <textarea id="description" name="description"></textarea>
-    <button id="saveProject-button">Save</button>
+<h3 class="headerText" id="project-header">New Project</h3>
+
+<div class="row contactRow">
+    <div class="col-6"> 
+        <div class="row">
+            <div class="col-4"><label class="projectLabel colAllignment">Project name</label></div>
+            <div class="col-8"><input class="projectInputField colAllignment" id="name" name="name" placeholder="Project name"></div>
+        </div>
+        <div class="row">
+            <div class="col-4"><label class="projectLabel">Date</label></div>
+            <div class="col-8"><input class="projectInputField" id="date" name="date" type="date" placeholder="date"></div>
+        </div>
+        <div class="row">
+            <div class="col-4"><label class="projectLabel">Github Link</label></div>
+            <div class="col-8"><input class="projectInputField" id="githubLink" name="githubLink" placeholder="Link to Github"></div>
+        </div>
+        <div class="row">
+            <div class="col-4"><label class="projectLabel">Website</label></div>
+            <div class="col-8"><input class="projectInputField" id="deployedLink" name="deployedLink" placeholder="Link to project"></div>
+        </div>
+    </div>
+
+    <div class="col-6"> 
+        <div class="row">
+            <label class="projectLabel">Description</label>
+        </div>
+        <div class="row">
+            <textarea class="projectInputField projectDescriptionInputField" id="description" name="description"></textarea>
+        </div>
+    </div>
 </div>
+
+<div class="row saveUpdateProjectLinkRow">
+    <div class="col-2 offset-5">
+        <div class="contactLink" id="saveProject-button">Save</div>
+    </div>
+</div>
+
 <script src="/pages/dashboard/editOrCreateProject.js"></script>
-
-
-
-<!-- <h2></h2>
-<form action="/api/updateProject" method="POST">
-<div>
-    <label>Project name</label>
-    <input id="name" name="name" placeholder="Project name">
-    <label>Date</label>
-    <input id="date" name="date" type="date" placeholder="date">
-    <label>Github Link</label>
-    <input id="githubLink" name="githubLink" placeholder="Link to Github">
-    <label>Website</label>
-    <input id="deployedLink" name="deployedLink" placeholder="Link to project">
-    <label>Description</label>
-    <textarea id="description" name="description"></textarea>
-    <button id="saveProject-button">Save</button>
-</div> -->
 
 

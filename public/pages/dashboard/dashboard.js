@@ -31,10 +31,10 @@ fetch("/api/projects")
         // Html for creating new project
         const createProjectColDiv = document.createElement("div");
         createProjectColDiv.className = "col-12 projectCol"
-        createProjectColDiv.innerHTML = `<div class="newProjectLink"><a href = "./createProject">New Project</a></div>`;
+        createProjectColDiv.innerHTML = `<div><a class="newProjectsLink" href = "./createProject">New Project</a></div>`;
         
         const createProjectRowDiv = document.createElement("div");
-        createProjectRowDiv.className = "projectRow"
+        createProjectRowDiv.className = "newProjectRow"
 
         createProjectRowDiv.appendChild(createProjectColDiv);
         projectsWrapperDiv.appendChild(createProjectRowDiv);

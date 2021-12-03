@@ -80,8 +80,8 @@ main {
 
 .headerText{
     color: rgb(63, 62, 62);
-    margin-bottom: 30px;
-    margin-top: 50px;
+    margin-bottom: 90px;
+    margin-top: 70px;
     text-align: center;
     font-size: 40px;
     font-family: 'Inter', sans-serif!important;
@@ -138,6 +138,50 @@ main {
     padding-left: 0px !important;
     position: relative;
     height: 30px;
+}
+
+.newProjectsLink{
+    color: rgb(63, 62, 62);
+    font-weight: 999;
+}
+
+.newProjectsLink:hover{
+    color: rgb(9, 9, 9);
+    font-weight:bolder;
+}
+
+.newProjectRow{
+    font-size: 18px;
+    font-family: 'Inter', sans-serif!important;
+}
+
+
+/* CREATE/UPDATE PROJECT */
+
+.saveUpdateProjectLinkRow{
+    margin-top:80px; 
+}
+
+.projectLabel{
+    font-size: 18px;
+    font-family: 'Inter', sans-serif!important;
+    color: rgb(63, 62, 62);
+    margin-right: 5px;
+    margin-left: 5px;
+}
+
+.projectInputField{
+    width: 90%;
+    background-color: white;
+    border: 1px solid hsl(0, 2%, 73%);
+}
+
+.projectDescriptionInputField{
+    min-height: 200px;
+}
+
+.colAllignment{
+    margin-top: 35px;
 }
 
 /* FRONT PAGE */
@@ -207,7 +251,6 @@ pre{
     width: 75%;
     background-color: white;
     border: 1px solid hsl(0, 2%, 73%);
-
 }
 
 .contactLink{
