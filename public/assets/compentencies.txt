@@ -1,0 +1,20 @@
+Web development - Backend:
+Java with Spring boot and Thymeleaf, Node.js with Express
+
+Web development - Frontend:
+JavaScript (vanilla), CSS, HTML
+
+iOS App development:
+Swift with storyboard (or programmatic UI), X-code
+
+Android development:
+Java, Android studio
+
+Database and storage:
+MySQL, SQLite, Firebase
+
+Deployment tools:
+Amazon Web Services, Docker
+
+Other:
+Git, GitHub, Python

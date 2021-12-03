@@ -70,10 +70,17 @@ const loginPage = fs.readFileSync("./public/pages/login/login.html", "utf8");
 // Register endpoint for frontpage
 app.get("/", (req, res) => {
 
+    // Get textfiles ready textfiles for html rendering.
+    const casualIntroduction = fs.readFileSync("./public/assets/casualIntroduction.txt");
+    const introductionHeader = fs.readFileSync("./public/assets/introductionHeader.txt");
+
     // ready pages by calling createPage, a method defined in render.js (which has been imported)
     const frontpagePage = createPage("frontpage/frontpage.html", { 
         title: "Nodefolio | Welcome",
-        session: req.session
+        session: req.session,
+        casualIntro: casualIntroduction,
+        introHeader: introductionHeader
+
     });
 
     // send and not send file because it is a Sting given as param (sendFile if param is a path)
@@ -98,8 +105,14 @@ app.get("/contact", (req, res) => {
 
 // Register endpoint for cv page
 app.get("/cv", (req, res) => {
+
+    const formalIntroduction = fs.readFileSync("./public/assets/formalIntroduction.txt");
+    const competencies = fs.readFileSync("./public/assets/compentencies.txt");
+
     const CVPage = createPage("CVPage/CVPage.html", {
-        session: req.session
+        session: req.session,
+        formalIntro: formalIntroduction,
+        competencies: competencies
     });
     res.send(CVPage);
 });
@@ -141,16 +154,5 @@ app.listen(PORT, (error) => {
     console.log(`app listening at http://localhost:${PORT}`)
 })
 
-
-/* Test:
-            const projectName = "Kira";
-            const date = "08-03-1984";
-            const description = "bla bla bla";
-            const githubLink = "linklink";
-            const deployedLink = "linkjjjjjjj";
-            const myString = `INSERT INTO projects (name, date, description, githubLink, deployedLink) VALUES (` + `'${projectName}', '${date}', '${description}', '${githubLink}', '${deployedLink}')`;
-            console.log("String test:");
-            console.log(myString); 
-*/
 
 // session tutorial: https://www.section.io/engineering-education/session-management-in-nodejs-using-expressjs-and-express-session/

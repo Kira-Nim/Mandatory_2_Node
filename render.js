@@ -8,28 +8,33 @@ const footer = fs.readFileSync("./public/components/footer/footer.html", "utf8")
 // create and return String containing what is in paht (html) with nav and footer incerted
 function createPage(path, options) {
 
-    console.log(options?.session)
-
     let dynamicNavHtmlString = `
     <a class="navText" href = "/login">Log in</a>
     `;
 
     if(options?.session?.userid){
         dynamicNavHtmlString = `
-        <div class="navDropdown">
-            <p>${options?.session.username || "User"}</p>
+        <div class="navDropdown navText">
+            <p>${options?.session.username || "Account"}</p>
             <div class="navDropdown-content">
                 <a class="navLinkStyle" href = "/logout">Log out</a>
-                <a class="navLinkStyle" href = "/projects configuration"></a>
+                <a class="navLinkStyle" href = "/projects">Manage content</a>
             </div>
         </div>
         `
-    }
+    };
 
     return (nav + fs.readFileSync(`./public/pages/${path}`, "utf8") + footer)
             .replace("%%DOCUMENT_TITLE%%", options?.title || "Nodefolio")
             .replace("%%SCRIPT_PLACEHOLDER%%", options?.scriptTag || "")
-            .replace("%%DYNAMIC_ITEMS_PLACEHOLDER%%", dynamicNavHtmlString);
+            .replace("%%DYNAMIC_ITEMS_PLACEHOLDER%%", dynamicNavHtmlString)
+            .replace("%%CASUAL_INTRO_PLACEHOLDER%%", options?.casualIntro)
+            .replace("%%CASUAL_INTRO_HEADER_PLACEHOLDER%%", options?.introHeader)
+            .replace("%%FORMAL_INTRO_PLACEHOLDER%%", options?.formalIntro)
+            .replace("%%INTRO_HEADER_PLACEHOLDER%%", options?.introHeader)
+            .replace("%%COMPETENCIES_LIST_PLACEHOLDER%%", options?.competencies);
+            
+
 }
 
 // Make the createPage metod acceseble with "require" from other js files.
