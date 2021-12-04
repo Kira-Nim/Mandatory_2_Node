@@ -21,10 +21,6 @@ export default connection;
 
 
 
-
-
-
-
 // Notes on async-await:
     // async --> This function will return a promise if ever it encounters an await.
     // await --> this function (second function) is linked to the function from which it is called (first function). 
