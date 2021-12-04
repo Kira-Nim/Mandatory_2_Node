@@ -19,7 +19,7 @@ let transporter = nodemailer.createTransport({
     auth: {
         user: testAccount.user, // generated ethereal user
         pass: testAccount.pass, // generated ethereal password
-},
+    },
 });
 
 router.post("/api/contact", async (req, res) => {
